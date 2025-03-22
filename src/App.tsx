@@ -186,25 +186,25 @@ function App() {
                     <h3 className="font-medium text-green-600 mb-4">Sustainability Impact</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       <div className="flex items-center gap-3 bg-gray-100 p-4 rounded-lg">
-                        <LucideZap className="h-5 w-5 text-yellow-600" />
-                        <div>
-                          <p className="text-sm text-gray-500">Energy Saved</p>
-                          <p className="text-lg font-medium">{sustainabilityInfo.energySaved.toFixed(3)} kWh</p>
-                        </div>
+                      <LucideZap className="h-5 w-5 text-yellow-600" />
+                      <div>
+                        <p className="text-sm text-gray-500">Energy Saved</p>
+                        <p className="text-lg font-medium">{sustainabilityInfo.energySaved.toFixed(3)} kWh</p>
+                      </div>
                       </div>
                       <div className="flex items-center gap-3 bg-gray-100 p-4 rounded-lg">
-                        <LucideLeaf className="h-5 w-5 text-green-600" />
-                        <div>
-                          <p className="text-sm text-gray-500">CO₂ Prevented</p>
-                          <p className="text-lg font-medium">{sustainabilityInfo.co2Saved.toFixed(3)} kg</p>
-                        </div>
+                      <LucideLeaf className="h-5 w-5 text-green-600" />
+                      <div>
+                        <p className="text-sm text-gray-500">CO₂ Prevented</p>
+                        <p className="text-lg font-medium">{sustainabilityInfo.co2Saved.toFixed(3)} kg</p>
+                      </div>
                       </div>
                       <div className="flex items-center gap-3 bg-gray-100 p-4 rounded-lg">
-                        <LucideDroplets className="h-5 w-5 text-blue-600" />
-                        <div>
-                          <p className="text-sm text-gray-500">Water Saved</p>
-                          <p className="text-lg font-medium">{sustainabilityInfo.waterSaved.toFixed(3)} L</p>
-                        </div>
+                      <LucideDroplets className="h-5 w-5 text-blue-600" />
+                      <div>
+                        <p className="text-sm text-gray-500">Water Saved</p>
+                        <p className="text-lg font-medium">{sustainabilityInfo.waterSaved.toFixed(3)} L</p>
+                      </div>
                       </div>
                     </div>
                     <div className="mt-4 text-sm text-gray-500 space-y-1">
