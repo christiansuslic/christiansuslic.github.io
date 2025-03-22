@@ -119,14 +119,18 @@ function App() {
     <div className="min-h-screen bg-gray-900 text-gray-100">
       <header className="bg-gray-800 border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 py-6">
-            <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3">
             <LucideGlobe2 className="h-8 w-8 text-green-400" />
             <h1 className="text-2xl font-semibold text-gray-100">
               WillowAI
             </h1>
-            </div>
+          </div>
         </div>
       </header>
+
+      <div className="flex justify-center mt-6">
+        <img src={treeImage} alt="Tree" style={{ marginTop: '20px', width: '150px', height: 'auto' }} />
+      </div>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         <div className="bg-gray-800 rounded-xl shadow-xl border border-gray-700">
