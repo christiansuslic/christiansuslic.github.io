@@ -124,12 +124,14 @@ function App() {
     <div className="min-h-screen bg-white text-black">
       <header className="bg-gray-100 border-b border-gray-300">
         <div className="max-w-7xl mx-auto px-4 py-6">
-            <div className="flex items-center gap-3">
-            <img src="logo.png" alt="WillowAI Logo" className="h-8 w-8" />
+          <div className="flex items-center gap-3">
+            <div className="flex justify-center mt-6">
+              <img src="/src/logo.png" alt="Tree" />
+            </div>
             <h1 className="text-2xl font-semibold text-black">
               WillowAI
             </h1>
-            </div>
+          </div>
         </div>
       </header>
 
