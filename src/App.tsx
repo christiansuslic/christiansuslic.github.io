@@ -77,8 +77,7 @@ function App() {
     e.preventDefault();
     if (!query.trim()) return;
   
-    // NEW: Hide the tree when user clicks Send
-    setHideTree(true); // NEW/CHANGED
+    setHideTree(true);
 
     setLoading(true);
     setResponse('');
@@ -89,7 +88,7 @@ function App() {
       await simulateStages();
       const metrics = await evaluateResourceEfficiency(query);
   
-      // Call OpenAI API
+      // Call AI model depending on metrics (here, deepseek is just used)
       const completion = await openai.chat.completions.create({
         model: "deepseek-chat",
         messages: [
@@ -125,16 +124,16 @@ function App() {
     <div className="min-h-screen bg-white text-black">
       <header className="bg-gray-100 border-b border-gray-300">
         <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="flex items-center gap-3">
-            <LucideGlobe2 className="h-8 w-8 text-green-600" />
+            <div className="flex items-center gap-3">
+            <img src="./logo.png" alt="WillowAI Logo" className="h-8 w-8" />
             <h1 className="text-2xl font-semibold text-black">
               WillowAI
             </h1>
-          </div>
+            </div>
         </div>
       </header>
 
-      {/* NEW: Only show tree if hideTree is false */}
+      {/*Only show tree if hideTree is false */}
       {!hideTree && ( // NEW/CHANGED
         <div className="flex justify-center mt-6">
           <img src={treeImage} alt="Tree" style={{ marginTop: '20px', width: '250px', height: 'auto' }} />
