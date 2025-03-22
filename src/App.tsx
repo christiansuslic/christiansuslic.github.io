@@ -119,13 +119,12 @@ function App() {
     <div className="min-h-screen bg-gray-900 text-gray-100">
       <header className="bg-gray-800 border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3">
             <LucideGlobe2 className="h-8 w-8 text-green-400" />
             <h1 className="text-2xl font-semibold text-gray-100">
               WillowAI
             </h1>
-          </div>
-          <img src={treeImage} alt="Tree" style={{ marginTop: '20px' }} /> {/* Add the image below the chat */}
+            </div>
         </div>
       </header>
 
