@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import OpenAI from "openai";
+import treeImage from './tree.png'; // Import the image file
 import { 
   LucideGlobe2, 
   LucideMessageSquare, 
@@ -121,9 +122,10 @@ function App() {
           <div className="flex items-center gap-3">
             <LucideGlobe2 className="h-8 w-8 text-green-400" />
             <h1 className="text-2xl font-semibold text-gray-100">
-              Sustainable AI Chat
+              WillowAI
             </h1>
           </div>
+          <img src={treeImage} alt="Tree" style={{ marginTop: '20px' }} /> {/* Add the image below the chat */}
         </div>
       </header>
 
