@@ -65,7 +65,8 @@ function App() {
   };
 
   const openai = new OpenAI({
-    apiKey: "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",
+    baseURL: "https://api.deepseek.com",
+    apiKey: "sk-7aa30308d1d34d8692d986de0d30da91"
   });
   
   const handleSubmit = async (e: React.FormEvent) => {
@@ -83,8 +84,11 @@ function App() {
   
       // Call OpenAI API
       const completion = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: query }],
+        model: "deepseek-chat",
+        messages: [
+          { role: "system", content: "You are a helpful AI assistant." },
+          { role: "user", content: query }
+        ],
       });
   
       const theResponse = completion.choices[0].message.content;
