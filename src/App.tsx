@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { NextResponse } from "next/server";
+import OpenAI from "openai";
 import { 
   LucideGlobe2, 
   LucideMessageSquare, 
@@ -62,23 +64,34 @@ function App() {
     }
   };
 
+  const openai = new OpenAI({
+    apiKey: "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",
+  });
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!query.trim()) return;
-
+  
     setLoading(true);
     setResponse('');
     setSustainabilityInfo(null);
-
+  
     try {
       // Process stages while evaluating efficiency
       await simulateStages();
       const metrics = await evaluateResourceEfficiency(query);
-
-      // Simulate response with placeholder text
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setResponse("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
-      
+  
+      // Call OpenAI API
+      const completion = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: query }],
+      });
+  
+      const theResponse = completion.choices[0].message.content;
+  
+      // Set response from OpenAI
+      setResponse(theResponse);
+  
       // Set actual sustainability metrics
       setSustainabilityInfo({
         model: metrics.provider.model,
@@ -92,10 +105,9 @@ function App() {
     } catch (error) {
       console.error('Error:', error);
       setResponse('Sorry, there was an error processing your request.');
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
-    setStages(prev => prev.map(stage => ({ ...stage, complete: false })));
   };
 
   return (
