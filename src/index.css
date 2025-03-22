@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.processing-stage {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.stage-complete {
+  @apply text-green-400;
+}
+
+.chat-message {
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+.metrics-card {
+  animation: slideIn 0.5s ease-out forwards;
+}
