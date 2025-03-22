@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { NextResponse } from "next/server";
 import OpenAI from "openai";
 import { 
   LucideGlobe2, 
@@ -66,7 +65,8 @@ function App() {
 
   const openai = new OpenAI({
     baseURL: "https://api.deepseek.com",
-    apiKey: "sk-7aa30308d1d34d8692d986de0d30da91"
+    apiKey: "sk-7aa30308d1d34d8692d986de0d30da91",
+    dangerouslyAllowBrowser: true
   });
   
   const handleSubmit = async (e: React.FormEvent) => {
