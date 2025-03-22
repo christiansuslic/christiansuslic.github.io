@@ -94,7 +94,7 @@ function App() {
       const theResponse = completion.choices[0].message.content;
   
       // Set response from OpenAI
-      setResponse(theResponse);
+      setResponse(theResponse || '');
   
       // Set actual sustainability metrics
       setSustainabilityInfo({
