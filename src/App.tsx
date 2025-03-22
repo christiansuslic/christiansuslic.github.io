@@ -93,7 +93,7 @@ function App() {
       const completion = await openai.chat.completions.create({
         model: "deepseek-chat",
         messages: [
-          { role: "system", content: "You are a helpful AI assistant." },
+          { role: "system", content: "You are a helpful AI assistant. Do not use LaTeX in your response" },
           { role: "user", content: query }
         ],
       });
