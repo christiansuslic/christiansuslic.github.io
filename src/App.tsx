@@ -129,7 +129,7 @@ function App() {
       </header>
 
       <div className="flex justify-center mt-6">
-        <img src={treeImage} alt="Tree" style={{ marginTop: '20px', width: '150px', height: 'auto' }} />
+        <img src={treeImage} alt="Tree" style={{ marginTop: '20px', width: '250px', height: 'auto' }} />
       </div>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
