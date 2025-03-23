@@ -94,7 +94,7 @@ export async function evaluateResourceEfficiency(
     .filter(p => p.available)
     .map(provider => {
       const regionFactor = regionCarbonIntensity[provider.region];
-      const actualCO2 = provider.baseCO2 * regionFactor * (tokenCount / 1000);
+      const actualCO2 = provider.baseCO2 * (tokenCount / 1000);
       
       const efficiencyScore = 1 - (provider.baseEnergy / 500); // Compare to worst case
       const carbonScore = 1 - (actualCO2 / 250); // Compare to worst case
