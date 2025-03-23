@@ -127,7 +127,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex items-center gap-3">
             <div className="flex justify-center mt-6">
-            <img src={logoImage} alt="Tree" style={{ marginTop: '20px', width: '50px', height: 'auto' }} />
+            <img src={logoImage} alt="Tree" style={{ marginTop: '20px', width: '100px', height: 'auto' }} />
             </div>
             <h1 className="text-2xl font-semibold text-black">
               WillowAI
