@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import OpenAI from "openai";
-import treeImage from './tree.png'; // Import the image file
+import treeImage from './tree.png'; 
 import logoImage from './logo.png';
 import { 
   LucideGlobe2, 
@@ -55,8 +55,8 @@ function App() {
     tokenCount: number;
   } | null>(null);
 
-  // NEW: Add state to hide the tree image
-  const [hideTree, setHideTree] = useState(false); // NEW/CHANGED
+  // Hide tree state
+  const [hideTree, setHideTree] = useState(false);
 
   const simulateStages = async () => {
     for (let i = 0; i < stages.length; i++) {
@@ -79,17 +79,14 @@ function App() {
     if (!query.trim()) return;
   
     setHideTree(true);
-
     setLoading(true);
     setResponse('');
     setSustainabilityInfo(null);
   
     try {
-      // Process stages while evaluating efficiency
       await simulateStages();
       const metrics = await evaluateResourceEfficiency(query);
   
-      // Call AI model depending on metrics (here, deepseek is just used)
       const completion = await openai.chat.completions.create({
         model: "deepseek-chat",
         messages: [
@@ -99,11 +96,8 @@ function App() {
       });
   
       const theResponse = completion.choices[0].message.content;
-  
-      // Set response from OpenAI
       setResponse(theResponse || '');
   
-      // Set actual sustainability metrics
       setSustainabilityInfo({
         model: metrics.provider.model,
         provider: metrics.provider.name,
@@ -123,12 +117,17 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white text-black">
+      {/* 
+        CHANGES: Updated header for a cleaner one-row layout 
+      */}
       <header className="bg-gray-100 border-b border-gray-300">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="flex items-center gap-3">
-            <div className="flex justify-center mt-6">
-            <img src={logoImage} alt="Tree" style={{ marginTop: '20px', width: '100px', height: 'auto' }} />
-            </div>
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex items-center gap-4">
+            <img 
+              src={logoImage} 
+              alt="WillowAI Logo" 
+              className="h-10 w-auto"
+            />
             <h1 className="text-2xl font-semibold text-black">
               WillowAI
             </h1>
@@ -136,12 +135,15 @@ function App() {
         </div>
       </header>
 
-      {/*Only show tree if hideTree is false */}
-      {!hideTree && ( // NEW/CHANGED
+      {!hideTree && (
         <div className="flex justify-center mt-6">
-          <img src={treeImage} alt="Tree" style={{ marginTop: '20px', width: '250px', height: 'auto' }} />
+          <img 
+            src={treeImage} 
+            alt="Tree" 
+            style={{ marginTop: '20px', width: '250px', height: 'auto' }} 
+          />
         </div>
-      )} {/* NEW/CHANGED */}
+      )}
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         <div className="bg-gray-100 rounded-xl shadow-xl border border-gray-300">
@@ -200,21 +202,27 @@ function App() {
                         <LucideZap className="h-5 w-5 text-yellow-600" />
                         <div>
                           <p className="text-sm text-gray-500">Energy Saved</p>
-                          <p className="text-lg font-medium">{sustainabilityInfo.energySaved.toFixed(3)} Wh</p>
+                          <p className="text-lg font-medium">
+                            {sustainabilityInfo.energySaved.toFixed(3)} Wh
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3 bg-gray-100 p-4 rounded-lg">
                         <LucideLeaf className="h-5 w-5 text-green-600" />
                         <div>
                           <p className="text-sm text-gray-500">CO₂ Prevented</p>
-                          <p className="text-lg font-medium">{sustainabilityInfo.co2Saved.toFixed(3)} g</p>
+                          <p className="text-lg font-medium">
+                            {sustainabilityInfo.co2Saved.toFixed(3)} g
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3 bg-gray-100 p-4 rounded-lg">
                         <LucideDroplets className="h-5 w-5 text-blue-600" />
                         <div>
                           <p className="text-sm text-gray-500">Water Saved</p>
-                          <p className="text-lg font-medium">{sustainabilityInfo.waterSaved.toFixed(3)} mL</p>
+                          <p className="text-lg font-medium">
+                            {sustainabilityInfo.waterSaved.toFixed(3)} mL
+                          </p>
                         </div>
                       </div>
                     </div>
