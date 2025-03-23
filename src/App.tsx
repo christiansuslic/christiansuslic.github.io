@@ -126,7 +126,7 @@ function App() {
             <img 
               src={logoImage} 
               alt="WillowAI Logo" 
-              className="h-25 w-auto"
+              className="h-15 w-auto"
             />
             <h1 className="text-2xl font-semibold text-black">
               WillowAI

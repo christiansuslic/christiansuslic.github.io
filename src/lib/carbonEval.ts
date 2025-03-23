@@ -118,7 +118,7 @@ export async function evaluateResourceEfficiency(
   
   // Calculate actual resource usage
   const actualEnergy = bestProvider.baseEnergy * (tokenCount / 1000);
-  const actualCO2 = bestProvider.baseCO2 * regionCarbonIntensity[bestProvider.region] * (tokenCount / 1000);
+  const actualCO2 = (bestProvider.baseCO2 * regionCarbonIntensity[bestProvider.region] * (tokenCount / 1000)) / 1000;
   const actualWater = bestProvider.waterUsage * (tokenCount / 1000);
   
   // Calculate savings compared to worst case
