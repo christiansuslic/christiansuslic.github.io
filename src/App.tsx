@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import OpenAI from "openai";
 import treeImage from './tree.png'; // Import the image file
+import logoImage from './logo.png';
 import { 
   LucideGlobe2, 
   LucideMessageSquare, 
@@ -126,7 +127,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex items-center gap-3">
             <div className="flex justify-center mt-6">
-              <img src="/src/logo.png" alt="Tree" />
+            <img src={logoImage} alt="Tree" style={{ marginTop: '20px', width: '50px', height: 'auto' }} />
             </div>
             <h1 className="text-2xl font-semibold text-black">
               WillowAI
